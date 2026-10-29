@@ -1,0 +1,51 @@
+﻿waiting for process 17340 to exit
+process 17340 exited at 23:09, starting Stage 5
+Stage 5: 24 runs | code f0dee58 (uncommitted changes: no)
+[1/24] enc_albert_a1024_s42  started 23:09  (K=2)
+    finished in 18.3 min | best epoch 21 | test hit@1 0.6047 | test acc 0.6781
+[2/24] enc_minilm_a1024_s42  started 23:28  (K=2)
+    finished in 23.2 min | best epoch 300 | test hit@1 0.6290 | test acc 0.6945
+[3/24] enc_distilroberta_a1024_s42  started 23:51  (K=2)
+    finished in 25.7 min | best epoch 265 | test hit@1 0.6373 | test acc 0.7033
+[4/24] z16_a1024_s42  started 00:16  (K=2)
+    finished in 38.4 min | best epoch 734 | test hit@1 0.6373 | test acc 0.6996
+[5/24] z32_a1024_s42  started 00:55  (K=2)
+    finished in 36.1 min | best epoch 657 | test hit@1 0.6330 | test acc 0.6937
+[6/24] z64_a1024_s42  started 01:31  (K=2)
+    finished in 28.4 min | best epoch 397 | test hit@1 0.6297 | test acc 0.6972
+[7/24] z256_a1024_s42  started 01:59  (K=4)
+    finished in 29.1 min | best epoch 346 | test hit@1 0.6207 | test acc 0.7035
+[8/24] z512_a1024_s42  started 02:28  (K=8)
+    finished in 74.1 min | best epoch 296 | test hit@1 0.6370 | test acc 0.7019
+[9/24] enc_albert_a512_s42  started 03:42  (K=2)
+    finished in 9.5 min | best epoch 8 | test hit@1 0.6140 | test acc 0.6594
+[10/24] enc_minilm_a512_s42  started 03:52  (K=2)
+    finished in 13.9 min | best epoch 336 | test hit@1 0.6190 | test acc 0.6789
+[11/24] enc_distilroberta_a512_s42  started 04:06  (K=2)
+    finished in 16.7 min | best epoch 403 | test hit@1 0.6317 | test acc 0.6814
+[12/24] z16_a512_s42  started 04:22  (K=2)
+    finished in 15.8 min | best epoch 449 | test hit@1 0.6093 | test acc 0.6853
+[13/24] z32_a512_s42  started 04:38  (K=2)
+    finished in 17.3 min | best epoch 527 | test hit@1 0.6243 | test acc 0.6838
+[14/24] z64_a512_s42  started 04:56  (K=2)
+    finished in 16.5 min | best epoch 452 | test hit@1 0.6247 | test acc 0.6840
+[15/24] z256_a512_s42  started 05:12  (K=2)
+    finished in 19.8 min | best epoch 400 | test hit@1 0.6260 | test acc 0.6855
+[16/24] z512_a512_s42  started 05:32  (K=4)
+    finished in 35.4 min | best epoch 344 | test hit@1 0.6090 | test acc 0.6875
+[17/24] enc_albert_a256_s42  started 06:07  (K=2)
+    finished in 8.2 min | best epoch 42 | test hit@1 0.6087 | test acc 0.6357
+[18/24] enc_minilm_a256_s42  started 06:15  (K=2)
+    finished in 12 min | best epoch 358 | test hit@1 0.6150 | test acc 0.6552
+[19/24] enc_distilroberta_a256_s42  started 06:27  (K=2)
+    finished in 12.7 min | best epoch 327 | test hit@1 0.6207 | test acc 0.6745
+[20/24] z16_a256_s42  started 06:40  (K=2)
+    finished in 14.3 min | best epoch 501 | test hit@1 0.6150 | test acc 0.6773
+[21/24] z32_a256_s42  started 06:54  (K=2)
+    finished in 12.8 min | best epoch 396 | test hit@1 0.6173 | test acc 0.6802
+[22/24] z64_a256_s42  started 07:07  (K=2)
+    finished in 11.7 min | best epoch 294 | test hit@1 0.6160 | test acc 0.6804
+[23/24] z256_a256_s42  started 07:19  (K=2)
+    finished in 13.2 min | best epoch 259 | test hit@1 0.6213 | test acc 0.6796
+[24/24] z512_a256_s42  started 07:32  (K=2)
+    finished in 19.4 min | best epoch 298 | test hit@1 0.6287 | test acc 0.6797

@@ -1,0 +1,17 @@
+# Only the reproduction code, results, runs and the English report are published
+/*
+!/.gitignore
+!/README.md
+!/repro/
+!/results/
+!/runs/
+!/REPORT_EN.md
+!/REPORT.pdf
+
+# report-building scripts are kept local
+/repro/make_pdf.py
+/repro/report_figures.py
+/repro/extract_paper.py
+
+__pycache__/
+*.pyc

@@ -1,0 +1,64 @@
+Using device: cuda
+a128_s42 embedllm sh=0: 47.63 | embedllm sh=1: 47.30 | embedllm+1 sh=0: 56.73 | embedllm+1 sh=1: 57.47 | embedllm+2 sh=0: 57.90 | embedllm+2 sh=1: 57.77
+a128_s43 embedllm sh=0: 59.20 | embedllm sh=1: 59.13 | embedllm+1 sh=0: 58.40 | embedllm+1 sh=1: 57.97 | embedllm+2 sh=0: 57.73 | embedllm+2 sh=1: 59.47
+a128_s44 embedllm sh=0: 59.63 | embedllm sh=1: 60.00 | embedllm+1 sh=0: 59.90 | embedllm+1 sh=1: 59.90 | embedllm+2 sh=0: 58.00 | embedllm+2 sh=1: 59.07
+a256_s42 embedllm sh=0: 58.67 | embedllm sh=1: 58.60 | embedllm+1 sh=0: 60.77 | embedllm+1 sh=1: 60.87 | embedllm+2 sh=0: 59.73 | embedllm+2 sh=1: 58.87
+a256_s43 embedllm sh=0: 61.40 | embedllm sh=1: 60.13 | embedllm+1 sh=0: 59.80 | embedllm+1 sh=1: 60.37 | embedllm+2 sh=0: 61.07 | embedllm+2 sh=1: 59.30
+a256_s44 embedllm sh=0: 61.03 | embedllm sh=1: 61.03 | embedllm+1 sh=0: 60.80 | embedllm+1 sh=1: 62.07 | embedllm+2 sh=0: 61.43 | embedllm+2 sh=1: 60.67
+a512_s42 embedllm sh=0: 61.47 | embedllm sh=1: 62.53 | embedllm+1 sh=0: 63.17 | embedllm+1 sh=1: 60.70 | embedllm+2 sh=0: 62.17 | embedllm+2 sh=1: 59.37
+a512_s43 embedllm sh=0: 60.73 | embedllm sh=1: 61.10 | embedllm+1 sh=0: 62.87 | embedllm+1 sh=1: 61.80 | embedllm+2 sh=0: 61.60 | embedllm+2 sh=1: 60.40
+a512_s44 embedllm sh=0: 60.87 | embedllm sh=1: 60.77 | embedllm+1 sh=0: 60.53 | embedllm+1 sh=1: 59.13 | embedllm+2 sh=0: 60.80 | embedllm+2 sh=1: 60.57
+a768_s42 embedllm sh=0: 63.37 | embedllm sh=1: 62.57 | embedllm+1 sh=0: 62.57 | embedllm+1 sh=1: 60.97 | embedllm+2 sh=0: 61.17 | embedllm+2 sh=1: 58.63
+a768_s43 embedllm sh=0: 61.03 | embedllm sh=1: 61.20 | embedllm+1 sh=0: 61.43 | embedllm+1 sh=1: 61.00 | embedllm+2 sh=0: 61.03 | embedllm+2 sh=1: 60.63
+a768_s44 embedllm sh=0: 59.93 | embedllm sh=1: 61.40 | embedllm+1 sh=0: 61.50 | embedllm+1 sh=1: 60.43 | embedllm+2 sh=0: 61.00 | embedllm+2 sh=1: 60.73
+a1024_s42 embedllm sh=0: 63.70 | embedllm sh=1: 63.57 | embedllm+1 sh=0: 63.53 | embedllm+1 sh=1: 62.80 | embedllm+2 sh=0: 62.47 | embedllm+2 sh=1: 59.77
+a1024_s43 embedllm sh=0: 62.23 | embedllm sh=1: 62.90 | embedllm+1 sh=0: 61.73 | embedllm+1 sh=1: 61.17 | embedllm+2 sh=0: 62.20 | embedllm+2 sh=1: 61.13
+a1024_s44 embedllm sh=0: 62.37 | embedllm sh=1: 62.37 | embedllm+1 sh=0: 61.10 | embedllm+1 sh=1: 60.43 | embedllm+2 sh=0: 62.13 | embedllm+2 sh=1: 61.27
+a2048_s42 embedllm sh=0: 64.70 | embedllm sh=1: 64.43 | embedllm+1 sh=0: 64.83 | embedllm+1 sh=1: 64.27 | embedllm+2 sh=0: 65.67 | embedllm+2 sh=1: 60.70
+a2048_s43 embedllm sh=0: 65.23 | embedllm sh=1: 65.17 | embedllm+1 sh=0: 64.70 | embedllm+1 sh=1: 64.40 | embedllm+2 sh=0: 63.20 | embedllm+2 sh=1: 61.00
+a2048_s44 embedllm sh=0: 63.47 | embedllm sh=1: 63.10 | embedllm+1 sh=0: 63.57 | embedllm+1 sh=1: 63.47 | embedllm+2 sh=0: 63.57 | embedllm+2 sh=1: 61.83
+# EmbedLLM under the official protocol
+
+lr 0.0001, 50 epochs, batch 2048; test hit@1 in %, mean over seeds.
+
+`test@50` = official (last epoch, no selection); `test@best_val` = same fit, epoch chosen by val hit@1.
+
+| variant | shuffle | anchors | test@50 | test@best_val | best_val_epoch | paper |
+|---|---|---|---|---|---|---|
+| embedllm | False | 128 | 55.49 | 55.83 | 35.67 |  |
+| embedllm | False | 256 | 60.37 | 60.29 | 49.67 | 58.80 |
+| embedllm | False | 512 | 61.02 | 60.83 | 45.33 | 59.47 |
+| embedllm | False | 768 | 61.44 | 61.43 | 48.00 |  |
+| embedllm | False | 1024 | 62.77 | 62.70 | 48.00 | 59.60 |
+| embedllm | False | 2048 | 64.47 | 64.23 | 42.00 |  |
+| embedllm | True | 128 | 55.48 | 55.91 | 35.33 |  |
+| embedllm | True | 256 | 59.92 | 59.92 | 48.00 | 58.80 |
+| embedllm | True | 512 | 61.47 | 61.18 | 43.67 | 59.47 |
+| embedllm | True | 768 | 61.72 | 61.64 | 43.67 |  |
+| embedllm | True | 1024 | 62.94 | 62.94 | 47.67 | 59.60 |
+| embedllm | True | 2048 | 64.23 | 64.67 | 44.67 |  |
+| embedllm+1 | False | 128 | 58.34 | 58.26 | 49.67 |  |
+| embedllm+1 | False | 256 | 60.46 | 60.53 | 40.67 | 59.17 |
+| embedllm+1 | False | 512 | 62.19 | 62.79 | 42.67 | 61.57 |
+| embedllm+1 | False | 768 | 61.83 | 62.09 | 37.33 |  |
+| embedllm+1 | False | 1024 | 62.12 | 62.93 | 33.33 | 59.73 |
+| embedllm+1 | False | 2048 | 64.37 | 64.60 | 21.33 |  |
+| embedllm+1 | True | 128 | 58.44 | 58.34 | 47.67 |  |
+| embedllm+1 | True | 256 | 61.10 | 61.46 | 46.33 | 59.17 |
+| embedllm+1 | True | 512 | 60.54 | 62.49 | 31.33 | 61.57 |
+| embedllm+1 | True | 768 | 60.80 | 61.86 | 27.00 |  |
+| embedllm+1 | True | 1024 | 61.47 | 62.93 | 18.33 | 59.73 |
+| embedllm+1 | True | 2048 | 64.04 | 64.68 | 18.00 |  |
+| embedllm+2 | False | 128 | 57.88 | 58.24 | 42.67 |  |
+| embedllm+2 | False | 256 | 60.74 | 60.81 | 33.67 | 59.17 |
+| embedllm+2 | False | 512 | 61.52 | 61.86 | 45.33 | 61.57 |
+| embedllm+2 | False | 768 | 61.07 | 61.29 | 34.67 |  |
+| embedllm+2 | False | 1024 | 62.27 | 63.03 | 28.33 | 59.73 |
+| embedllm+2 | False | 2048 | 64.14 | 64.80 | 24.33 |  |
+| embedllm+2 | True | 128 | 58.77 | 58.64 | 42.33 |  |
+| embedllm+2 | True | 256 | 59.61 | 60.77 | 29.33 | 59.17 |
+| embedllm+2 | True | 512 | 60.11 | 62.18 | 28.33 | 61.57 |
+| embedllm+2 | True | 768 | 60.00 | 62.46 | 22.33 |  |
+| embedllm+2 | True | 1024 | 60.72 | 63.26 | 20.00 | 59.73 |
+| embedllm+2 | True | 2048 | 61.18 | 65.24 | 11.67 |  |
+

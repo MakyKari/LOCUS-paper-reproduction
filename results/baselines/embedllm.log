@@ -1,0 +1,41 @@
+Using device: cuda
+a128_s42    embedllm lr 0.001 ep 21: hit@1 60.00 acc 65.90 | embedllm+1 lr 0.0001 ep 65: hit@1 59.73 acc 65.53 | embedllm+2 lr 0.0001 ep 44: hit@1 58.60 acc 65.36  (23 s)
+a128_s43    embedllm lr 0.001 ep 8: hit@1 58.97 acc 62.50 | embedllm+1 lr 0.0001 ep 74: hit@1 60.20 acc 64.06 | embedllm+2 lr 0.001 ep 5: hit@1 58.83 acc 63.01  (23 s)
+a128_s44    embedllm lr 0.001 ep 20: hit@1 59.57 acc 65.96 | embedllm+1 lr 0.0001 ep 53: hit@1 59.60 acc 65.35 | embedllm+2 lr 0.001 ep 3: hit@1 59.97 acc 59.42  (21 s)
+a256_s42    embedllm lr 0.0001 ep 76: hit@1 62.13 acc 66.56 | embedllm+1 lr 0.0001 ep 43: hit@1 61.47 acc 67.53 | embedllm+2 lr 0.0001 ep 30: hit@1 60.10 acc 67.20  (23 s)
+a256_s43    embedllm lr 0.001 ep 11: hit@1 62.17 acc 66.96 | embedllm+1 lr 0.0001 ep 57: hit@1 59.87 acc 66.99 | embedllm+2 lr 0.0001 ep 11: hit@1 60.37 acc 59.42  (21 s)
+a256_s44    embedllm lr 0.0001 ep 124: hit@1 62.83 acc 67.42 | embedllm+1 lr 0.0001 ep 52: hit@1 62.30 acc 67.06 | embedllm+2 lr 0.0001 ep 56: hit@1 60.83 acc 64.38  (27 s)
+a512_s42    embedllm lr 0.001 ep 8: hit@1 62.20 acc 68.47 | embedllm+1 lr 0.0001 ep 34: hit@1 62.00 acc 68.39 | embedllm+2 lr 0.0001 ep 22: hit@1 61.40 acc 66.97  (35 s)
+a512_s43    embedllm lr 0.0001 ep 93: hit@1 62.67 acc 68.22 | embedllm+1 lr 0.0001 ep 31: hit@1 63.60 acc 68.21 | embedllm+2 lr 0.0001 ep 24: hit@1 63.40 acc 67.25  (36 s)
+a512_s44    embedllm lr 0.001 ep 9: hit@1 62.50 acc 68.19 | embedllm+1 lr 0.0001 ep 26: hit@1 61.87 acc 68.06 | embedllm+2 lr 0.0001 ep 36: hit@1 61.73 acc 67.20  (38 s)
+a768_s42    embedllm lr 0.001 ep 4: hit@1 63.47 acc 68.84 | embedllm+1 lr 0.001 ep 4: hit@1 62.37 acc 68.75 | embedllm+2 lr 0.0001 ep 16: hit@1 61.90 acc 68.44  (42 s)
+a768_s43    embedllm lr 0.001 ep 9: hit@1 63.10 acc 68.47 | embedllm+1 lr 0.0001 ep 23: hit@1 62.00 acc 68.48 | embedllm+2 lr 0.0001 ep 18: hit@1 63.07 acc 68.19  (45 s)
+a768_s44    embedllm lr 0.001 ep 9: hit@1 62.60 acc 68.31 | embedllm+1 lr 0.001 ep 3: hit@1 61.40 acc 68.07 | embedllm+2 lr 0.0001 ep 30: hit@1 62.40 acc 67.35  (48 s)
+a1024_s42   embedllm lr 0.0001 ep 56: hit@1 63.80 acc 69.32 | embedllm+1 lr 0.0001 ep 20: hit@1 63.67 acc 69.16 | embedllm+2 lr 0.0001 ep 16: hit@1 63.70 acc 68.70  (53 s)
+a1024_s43   embedllm lr 0.0001 ep 50: hit@1 63.23 acc 69.20 | embedllm+1 lr 0.001 ep 9: hit@1 62.50 acc 69.20 | embedllm+2 lr 0.0001 ep 22: hit@1 63.23 acc 68.21  (54 s)
+a1024_s44   embedllm lr 0.0001 ep 90: hit@1 61.83 acc 68.30 | embedllm+1 lr 0.0001 ep 17: hit@1 61.73 acc 68.22 | embedllm+2 lr 0.0001 ep 19: hit@1 62.83 acc 68.03  (62 s)
+a2048_s42   embedllm lr 0.0001 ep 55: hit@1 64.70 acc 69.85 | embedllm+1 lr 0.001 ep 2: hit@1 65.40 acc 69.87 | embedllm+2 lr 0.0001 ep 12: hit@1 65.03 acc 69.76  (91 s)
+a2048_s43   embedllm lr 0.001 ep 9: hit@1 64.37 acc 69.65 | embedllm+1 lr 0.0001 ep 14: hit@1 65.77 acc 69.69 | embedllm+2 lr 0.0001 ep 9: hit@1 66.00 acc 69.58  (90 s)
+a2048_s44   embedllm lr 0.001 ep 6: hit@1 63.63 acc 69.48 | embedllm+1 lr 0.0001 ep 23: hit@1 63.17 acc 69.50 | embedllm+2 lr 0.0001 ep 11: hit@1 64.70 acc 69.32  (98 s)
+# Stage 4: EmbedLLM and EmbedLLM+
+
+Official TextMF trained on the anchors of each LOCUS run in `runs/main`; lr and epoch chosen per run by val hit@1.
+EmbedLLM+ = the better of 1 / 2 hidden classifier layers by mean val hit@1. Test metrics, %.
+
+## Table 2 (overall): mean over seeds vs. paper
+
+| method | variant | anchors | seeds | lr | routing | routing_std | routing_paper | routing_diff | correctness | correctness_std | correctness_paper | correctness_diff |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| embedllm | embedllm | 128 | 3 | 0.001,0.001,0.001 | 59.51 | 0.52 |  |  | 64.79 | 1.98 |  |  |
+| embedllm | embedllm | 256 | 3 | 0.0001,0.001,0.0001 | 62.38 | 0.39 | 58.80 | 3.58 | 66.98 | 0.43 | 67.33 | -0.35 |
+| embedllm | embedllm | 512 | 3 | 0.001,0.0001,0.001 | 62.46 | 0.24 | 59.47 | 2.99 | 68.29 | 0.15 | 68.12 | 0.17 |
+| embedllm | embedllm | 768 | 3 | 0.001,0.001,0.001 | 63.06 | 0.44 |  |  | 68.54 | 0.27 |  |  |
+| embedllm | embedllm | 1024 | 3 | 0.0001,0.0001,0.0001 | 62.96 | 1.01 | 59.60 | 3.36 | 68.94 | 0.55 | 69.47 | -0.53 |
+| embedllm | embedllm | 2048 | 3 | 0.0001,0.001,0.001 | 64.23 | 0.55 | 62.60 | 1.63 | 69.66 | 0.19 |  |  |
+| embedllm+ | embedllm+1 | 128 | 3 | 0.0001,0.0001,0.0001 | 59.84 | 0.32 |  |  | 64.98 | 0.80 |  |  |
+| embedllm+ | embedllm+1 | 256 | 3 | 0.0001,0.0001,0.0001 | 61.21 | 1.24 | 59.17 | 2.04 | 67.19 | 0.30 | 66.14 | 1.05 |
+| embedllm+ | embedllm+2 | 512 | 3 | 0.0001,0.0001,0.0001 | 62.18 | 1.07 | 61.57 | 0.61 | 67.14 | 0.15 | 68.09 | -0.95 |
+| embedllm+ | embedllm+2 | 768 | 3 | 0.0001,0.0001,0.0001 | 62.46 | 0.59 |  |  | 67.99 | 0.57 |  |  |
+| embedllm+ | embedllm+2 | 1024 | 3 | 0.0001,0.0001,0.0001 | 63.26 | 0.43 | 59.73 | 3.53 | 68.31 | 0.35 | 69.33 | -1.02 |
+| embedllm+ | embedllm+2 | 2048 | 3 | 0.0001,0.0001,0.0001 | 65.24 | 0.68 |  |  | 69.55 | 0.22 |  |  |
+

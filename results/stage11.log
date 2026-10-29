@@ -1,0 +1,78 @@
+Using device: cuda
+h=0 D=64: cos 0.506 flip 2.78% identified 0.61 (366 s)
+h=0 D=128: cos 0.535 flip 3.14% identified 0.87 (346 s)
+h=0 D=232: cos 0.599 flip 3.35% identified 0.82 (328 s)
+h=0 D=512: cos 0.561 flip 3.34% identified 0.90 (504 s)
+h=1 D=64: cos 0.773 flip 4.76% identified 0.08 (396 s)
+h=1 D=128: cos 0.724 flip 4.84% identified 0.30 (435 s)
+h=1 D=232: cos 0.731 flip 4.77% identified 0.43 (451 s)
+h=1 D=512: cos 0.678 flip 4.06% identified 0.67 (674 s)
+h=2 D=64: cos 0.851 flip 4.95% identified 0.05 (427 s)
+h=2 D=128: cos 0.830 flip 5.16% identified 0.13 (366 s)
+h=2 D=232: cos 0.804 flip 5.33% identified 0.22 (435 s)
+h=2 D=512: cos 0.734 flip 4.91% identified 0.62 (694 s)
+h=3 D=64: cos 0.876 flip 5.37% identified 0.07 (416 s)
+h=3 D=128: cos 0.868 flip 4.94% identified 0.13 (482 s)
+h=3 D=232: cos 0.858 flip 5.62% identified 0.16 (380 s)
+h=3 D=512: cos 0.779 flip 4.96% identified 0.53 (657 s)
+h=4 D=64: cos 0.882 flip 5.98% identified 0.08 (303 s)
+h=4 D=128: cos 0.838 flip 5.37% identified 0.12 (521 s)
+h=4 D=232: cos 0.848 flip 5.82% identified 0.25 (422 s)
+h=4 D=512: cos 0.783 flip 4.98% identified 0.46 (657 s)
+fig15 overlap 0.0 done
+fig15 overlap 0.2 done
+fig15 overlap 0.4 done
+fig15 overlap 0.6 done
+fig15 overlap 0.8 done
+fig15 size 512 done
+fig15 size 768 done
+fig15 size 1024 done
+# Stage 11: instability of EmbedLLM embeddings
+
+Training data: the 4096 reference anchors x 112 models. Test split for flips / accuracy. Early stopping on val CE (patience 5), lr 0.001.
+
+Paper: Fig. 16 cosine 0.27-0.65 (e.g. 0 hidden: 0.446 at D=64, 0.648 at D=512); Fig. 17 disagreement 1.2-8.1%.
+
+## Figs. 16-17: retrain e with G frozen, same data
+
+| hidden | D | epoch_orig | epoch_regen | cos_dist | flip_pct | identified | acc_orig | acc_regen | paper_cos |
+|---|---|---|---|---|---|---|---|---|---|
+| 0 | 64 | 23 | 53 | 0.506 | 2.775 | 0.607 | 70.263 | 70.341 | 0.446 |
+| 0 | 128 | 8 | 55 | 0.535 | 3.139 | 0.866 | 70.209 | 70.262 | 0.511 |
+| 0 | 232 | 8 | 39 | 0.599 | 3.353 | 0.821 | 70.220 | 70.289 | 0.572 |
+| 0 | 512 | 8 | 43 | 0.561 | 3.337 | 0.902 | 70.215 | 70.275 | 0.648 |
+| 1 | 64 | 9 | 72 | 0.773 | 4.757 | 0.080 | 71.041 | 71.317 |  |
+| 1 | 128 | 6 | 72 | 0.724 | 4.842 | 0.304 | 71.020 | 71.236 |  |
+| 1 | 232 | 5 | 54 | 0.731 | 4.766 | 0.429 | 70.939 | 71.277 |  |
+| 1 | 512 | 7 | 64 | 0.678 | 4.062 | 0.670 | 71.049 | 71.252 |  |
+| 2 | 64 | 2 | 95 | 0.851 | 4.950 | 0.054 | 70.523 | 70.879 |  |
+| 2 | 128 | 4 | 61 | 0.830 | 5.156 | 0.134 | 70.972 | 71.240 |  |
+| 2 | 232 | 5 | 56 | 0.804 | 5.326 | 0.223 | 71.079 | 71.291 |  |
+| 2 | 512 | 5 | 65 | 0.734 | 4.909 | 0.625 | 70.982 | 71.249 |  |
+| 3 | 64 | 1 | 81 | 0.876 | 5.365 | 0.071 | 70.251 | 70.534 | 0.270 |
+| 3 | 128 | 1 | 84 | 0.868 | 4.935 | 0.134 | 70.235 | 70.379 |  |
+| 3 | 232 | 2 | 49 | 0.858 | 5.620 | 0.161 | 70.452 | 70.733 |  |
+| 3 | 512 | 4 | 64 | 0.779 | 4.965 | 0.527 | 71.077 | 71.310 |  |
+| 4 | 64 | 3 | 53 | 0.882 | 5.983 | 0.080 | 70.528 | 70.713 |  |
+| 4 | 128 | 3 | 84 | 0.838 | 5.368 | 0.116 | 70.940 | 71.260 |  |
+| 4 | 232 | 4 | 49 | 0.848 | 5.820 | 0.250 | 70.861 | 71.028 |  |
+| 4 | 512 | 4 | 64 | 0.783 | 4.976 | 0.464 | 70.937 | 71.214 |  |
+
+## Fig. 15 settings and the LOCUS comparison
+
+`identified` = fraction of models whose own original embedding is the nearest original to the regenerated one. LOCUS `same set` re-embeds the exact anchors (deterministic, distance 0 by construction).
+
+| method | kind | value | cos_dist | flip_pct | identified | acc_orig | acc_regen |
+|---|---|---|---|---|---|---|---|
+| EmbedLLM | overlap | 0.000 | 0.797 | 4.565 | 0.134 | 70.220 | 70.319 |
+| LOCUS | overlap | 0.000 | 0.005 | 1.663 | 0.304 | 70.728 | 70.727 |
+| EmbedLLM | overlap | 0.200 | 0.816 | 4.372 | 0.134 | 70.220 | 70.256 |
+| EmbedLLM | overlap | 0.400 | 0.726 | 4.090 | 0.295 | 70.220 | 70.268 |
+| EmbedLLM | overlap | 0.600 | 0.648 | 3.704 | 0.688 | 70.220 | 70.263 |
+| EmbedLLM | overlap | 0.800 | 0.593 | 3.612 | 0.821 | 70.220 | 70.285 |
+| EmbedLLM | size | 512.000 | 0.860 | 5.880 | 0.125 | 70.220 | 69.957 |
+| EmbedLLM | size | 768.000 | 0.839 | 5.013 | 0.179 | 70.220 | 70.090 |
+| EmbedLLM | size | 1024.000 | 0.757 | 4.429 | 0.330 | 70.220 | 70.199 |
+| LOCUS | size | 1024.000 | 0.006 | 1.940 | 0.402 | 70.728 | 70.698 |
+| LOCUS | same set | 1.000 | 0.000 | 0.000 | 1.000 | 70.728 | 70.728 |
+

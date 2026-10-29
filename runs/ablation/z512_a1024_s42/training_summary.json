@@ -1,0 +1,513 @@
+{
+  "best_epoch": 296,
+  "best_val_hit@1": 0.6303333044052124,
+  "best_test_hit@1": 0.6370000243186951,
+  "stopped_epoch": 796,
+  "early_stopping_patience": 500,
+  "max_epochs": 2500,
+  "args": {
+    "emb_col": "emb_all_mpnet_base_v2",
+    "tasks_train": "",
+    "tasks_val": "",
+    "tasks_test": "",
+    "model_idx_train": "",
+    "model_idx_val": "",
+    "model_idx_test": "",
+    "save_model": true,
+    "anchors_per_model": 1024,
+    "num_target_valtest": 256,
+    "batch_size_train": 128,
+    "grad_accum_steps": 8,
+    "batch_size_eval": 128,
+    "rng_seed": 42,
+    "noise_schedule": "cosine",
+    "noise_start_epoch": 0,
+    "noise_end_epoch": 500,
+    "enc_noise_start": 0.1,
+    "enc_noise_end": 0.05,
+    "decq_noise_start": 0.1,
+    "decq_noise_end": 0.05,
+    "max_epochs": 2500,
+    "early_stopping_patience": 500,
+    "improvement_eps": 0.0,
+    "models_dir": "..\\runs\\ablation\\z512_a1024_s42",
+    "z_dim": 512,
+    "n_heads": 4,
+    "n_layers": 2,
+    "encoder_dropout": 0.1,
+    "decoder_hidden": 64,
+    "decoder_dropout": 0.1,
+    "encoder_kind": "isab",
+    "m_induce": 64,
+    "encoder_anchor_sizes": "",
+    "encoder_min_anchors": 1024,
+    "encoder_max_anchors": null,
+    "use_pos_weight": false,
+    "add_noise_encoder_q": true,
+    "add_noise_decoder_q": true,
+    "add_noise_decoder_z": false,
+    "noise_decoder_z_std": 0.05,
+    "enc_lr": 0.0002,
+    "dec_lr": 0.0008,
+    "enc_weight_decay": 0.05,
+    "dec_weight_decay": 0.05
+  },
+  "best_eval": {
+    "val": {
+      "overall": {
+        "routing": {
+          "num_queries": 3000,
+          "avg_num_positive_models": 45.81666666666667,
+          "hit@1": 0.6303333044052124,
+          "hit@3": 0.762666642665863,
+          "hit@5": 0.7996666431427002
+        },
+        "correctness_prediction": {
+          "correctness_pred_acc": 0.6965029761904762,
+          "bce_per_pair": 0.5919212832588895,
+          "brier": 0.20118659141893833,
+          "roc_auc": 0.7372172519042433,
+          "mean_pred": 0.40642840953388043,
+          "mean_label": 0.40907738095238094,
+          "num_queries": 3000,
+          "num_pairs": 336000,
+          "num_models": 112
+        }
+      },
+      "by_dataset": {
+        "routing": [
+          {
+            "dataset": "MMLU",
+            "num_queries": 1157,
+            "avg_num_positive_models": 59.13483146067416,
+            "hit@1": 0.7960242033004761,
+            "hit@3": 0.9256698489189148,
+            "hit@5": 0.9369058012962341
+          },
+          {
+            "dataset": "GPQA",
+            "num_queries": 446,
+            "avg_num_positive_models": 23.114349775784753,
+            "hit@1": 0.26233184337615967,
+            "hit@3": 0.5044842958450317,
+            "hit@5": 0.6008968353271484
+          },
+          {
+            "dataset": "medmcqa",
+            "num_queries": 375,
+            "avg_num_positive_models": 48.656,
+            "hit@1": 0.6986666917800903,
+            "hit@3": 0.8399999737739563,
+            "hit@5": 0.8613333106040955
+          },
+          {
+            "dataset": "mathqa",
+            "num_queries": 280,
+            "avg_num_positive_models": 37.75714285714286,
+            "hit@1": 0.5249999761581421,
+            "hit@3": 0.6607142686843872,
+            "hit@5": 0.7250000238418579
+          },
+          {
+            "dataset": "asdiv",
+            "num_queries": 190,
+            "avg_num_positive_models": 4.21578947368421,
+            "hit@1": 0.6105263233184814,
+            "hit@3": 0.6526315808296204,
+            "hit@5": 0.6736842393875122
+          },
+          {
+            "dataset": "social_iqa",
+            "num_queries": 161,
+            "avg_num_positive_models": 32.142857142857146,
+            "hit@1": 0.27950310707092285,
+            "hit@3": 0.2981366515159607,
+            "hit@5": 0.35403725504875183
+          },
+          {
+            "dataset": "piqa",
+            "num_queries": 160,
+            "avg_num_positive_models": 86.3875,
+            "hit@1": 0.8125,
+            "hit@3": 0.8500000238418579,
+            "hit@5": 0.875
+          },
+          {
+            "dataset": "gsm8k",
+            "num_queries": 112,
+            "avg_num_positive_models": 48.24107142857143,
+            "hit@1": 0.875,
+            "hit@3": 0.9553571343421936,
+            "hit@5": 0.9553571343421936
+          },
+          {
+            "dataset": "logiqa",
+            "num_queries": 60,
+            "avg_num_positive_models": 34.05,
+            "hit@1": 0.3499999940395355,
+            "hit@3": 0.6499999761581421,
+            "hit@5": 0.7666666507720947
+          },
+          {
+            "dataset": "truthfulqa_mc1",
+            "num_queries": 59,
+            "avg_num_positive_models": 45.08474576271186,
+            "hit@1": 0.5762711763381958,
+            "hit@3": 0.6440678238868713,
+            "hit@5": 0.7288135886192322
+          }
+        ],
+        "correctness_prediction": [
+          {
+            "dataset": "MMLU",
+            "correctness_pred_acc": 0.6622808371403877,
+            "bce_per_pair": 0.6196422001756794,
+            "brier": 0.2149482387541818,
+            "roc_auc": 0.7154402427317712,
+            "mean_pred": 0.5225088640125837,
+            "mean_label": 0.5279895666131621,
+            "num_queries": 1157,
+            "num_pairs": 129584,
+            "num_models": 112
+          },
+          {
+            "dataset": "GPQA",
+            "correctness_pred_acc": 0.7886370916079436,
+            "bce_per_pair": 0.5162764413978869,
+            "brier": 0.16674642759186253,
+            "roc_auc": 0.5519381723026523,
+            "mean_pred": 0.2159800811539399,
+            "mean_label": 0.20637812299807815,
+            "num_queries": 446,
+            "num_pairs": 49952,
+            "num_models": 112
+          },
+          {
+            "dataset": "medmcqa",
+            "correctness_pred_acc": 0.5989285714285715,
+            "bce_per_pair": 0.665775490245089,
+            "brier": 0.23637593821802524,
+            "roc_auc": 0.6175537547246466,
+            "mean_pred": 0.44408746321702364,
+            "mean_label": 0.43442857142857144,
+            "num_queries": 375,
+            "num_pairs": 42000,
+            "num_models": 112
+          },
+          {
+            "dataset": "mathqa",
+            "correctness_pred_acc": 0.650765306122449,
+            "bce_per_pair": 0.7039252870198939,
+            "brier": 0.24130366884074705,
+            "roc_auc": 0.5143428650118367,
+            "mean_pred": 0.28307902737857343,
+            "mean_label": 0.3371173469387755,
+            "num_queries": 280,
+            "num_pairs": 31360,
+            "num_models": 112
+          },
+          {
+            "dataset": "asdiv",
+            "correctness_pred_acc": 0.9608552631578947,
+            "bce_per_pair": 0.17890732592775838,
+            "brier": 0.041246163856255,
+            "roc_auc": 0.5949515959194276,
+            "mean_pred": 0.07813069955942561,
+            "mean_label": 0.037640977443609024,
+            "num_queries": 190,
+            "num_pairs": 21280,
+            "num_models": 112
+          },
+          {
+            "dataset": "social_iqa",
+            "correctness_pred_acc": 0.7010314995563443,
+            "bce_per_pair": 0.6214481192440173,
+            "brier": 0.2134946046241135,
+            "roc_auc": 0.5026535066707397,
+            "mean_pred": 0.31082557845238296,
+            "mean_label": 0.2869897959183674,
+            "num_queries": 161,
+            "num_pairs": 18032,
+            "num_models": 112
+          },
+          {
+            "dataset": "piqa",
+            "correctness_pred_acc": 0.6852120535714286,
+            "bce_per_pair": 0.6897726611331603,
+            "brier": 0.2176429543477698,
+            "roc_auc": 0.5411913703188111,
+            "mean_pred": 0.7581965042833263,
+            "mean_label": 0.7713169642857143,
+            "num_queries": 160,
+            "num_pairs": 17920,
+            "num_models": 112
+          },
+          {
+            "dataset": "gsm8k",
+            "correctness_pred_acc": 0.7224170918367347,
+            "bce_per_pair": 0.5560611795173361,
+            "brier": 0.18809372949732397,
+            "roc_auc": 0.7927008218138937,
+            "mean_pred": 0.37287532981915567,
+            "mean_label": 0.4307238520408163,
+            "num_queries": 112,
+            "num_pairs": 12544,
+            "num_models": 112
+          },
+          {
+            "dataset": "logiqa",
+            "correctness_pred_acc": 0.6821428571428572,
+            "bce_per_pair": 0.6124618665315993,
+            "brier": 0.2111077915575635,
+            "roc_auc": 0.5763126665927796,
+            "mean_pred": 0.3395583681587395,
+            "mean_label": 0.3040178571428571,
+            "num_queries": 60,
+            "num_pairs": 6720,
+            "num_models": 112
+          },
+          {
+            "dataset": "truthfulqa_mc1",
+            "correctness_pred_acc": 0.6407384987893463,
+            "bce_per_pair": 0.6504731033689348,
+            "brier": 0.22922899720541254,
+            "roc_auc": 0.6373579274935058,
+            "mean_pred": 0.41162202729344965,
+            "mean_label": 0.4025423728813559,
+            "num_queries": 59,
+            "num_pairs": 6608,
+            "num_models": 112
+          }
+        ]
+      }
+    },
+    "test": {
+      "overall": {
+        "routing": {
+          "num_queries": 3000,
+          "avg_num_positive_models": 45.446,
+          "hit@1": 0.6370000243186951,
+          "hit@3": 0.7693333625793457,
+          "hit@5": 0.8059999942779541
+        },
+        "correctness_prediction": {
+          "correctness_pred_acc": 0.7019166666666666,
+          "bce_per_pair": 0.5801737272269762,
+          "brier": 0.1972202455741087,
+          "roc_auc": 0.7475509739905922,
+          "mean_pred": 0.4051079748576444,
+          "mean_label": 0.4057678571428571,
+          "num_queries": 3000,
+          "num_pairs": 336000,
+          "num_models": 112
+        }
+      },
+      "by_dataset": {
+        "routing": [
+          {
+            "dataset": "MMLU",
+            "num_queries": 1178,
+            "avg_num_positive_models": 60.059422750424446,
+            "hit@1": 0.7920203804969788,
+            "hit@3": 0.921901524066925,
+            "hit@5": 0.9346349835395813
+          },
+          {
+            "dataset": "GPQA",
+            "num_queries": 500,
+            "avg_num_positive_models": 22.706,
+            "hit@1": 0.29600000381469727,
+            "hit@3": 0.5180000066757202,
+            "hit@5": 0.6240000128746033
+          },
+          {
+            "dataset": "medmcqa",
+            "num_queries": 354,
+            "avg_num_positive_models": 47.836158192090394,
+            "hit@1": 0.7401130199432373,
+            "hit@3": 0.8531073331832886,
+            "hit@5": 0.8841807842254639
+          },
+          {
+            "dataset": "mathqa",
+            "num_queries": 237,
+            "avg_num_positive_models": 37.70886075949367,
+            "hit@1": 0.5316455960273743,
+            "hit@3": 0.6835442781448364,
+            "hit@5": 0.7088607549667358
+          },
+          {
+            "dataset": "asdiv",
+            "num_queries": 198,
+            "avg_num_positive_models": 3.8585858585858586,
+            "hit@1": 0.631313145160675,
+            "hit@3": 0.7222222089767456,
+            "hit@5": 0.7424242496490479
+          },
+          {
+            "dataset": "social_iqa",
+            "num_queries": 162,
+            "avg_num_positive_models": 35.75925925925926,
+            "hit@1": 0.3024691343307495,
+            "hit@3": 0.327160507440567,
+            "hit@5": 0.37037035822868347
+          },
+          {
+            "dataset": "piqa",
+            "num_queries": 134,
+            "avg_num_positive_models": 90.15671641791045,
+            "hit@1": 0.8208954930305481,
+            "hit@3": 0.888059675693512,
+            "hit@5": 0.9179104566574097
+          },
+          {
+            "dataset": "gsm8k",
+            "num_queries": 112,
+            "avg_num_positive_models": 47.32142857142857,
+            "hit@1": 0.8839285969734192,
+            "hit@3": 0.9285714030265808,
+            "hit@5": 0.9375
+          },
+          {
+            "dataset": "truthfulqa_mc1",
+            "num_queries": 74,
+            "avg_num_positive_models": 34.58108108108108,
+            "hit@1": 0.47297295928001404,
+            "hit@3": 0.5405405163764954,
+            "hit@5": 0.6216216087341309
+          },
+          {
+            "dataset": "logiqa",
+            "num_queries": 51,
+            "avg_num_positive_models": 36.6078431372549,
+            "hit@1": 0.47058823704719543,
+            "hit@3": 0.7843137383460999,
+            "hit@5": 0.843137264251709
+          }
+        ],
+        "correctness_prediction": [
+          {
+            "dataset": "MMLU",
+            "correctness_pred_acc": 0.6599411836041718,
+            "bce_per_pair": 0.620403988569132,
+            "brier": 0.2154039445909861,
+            "roc_auc": 0.7134702039855534,
+            "mean_pred": 0.529302515667307,
+            "mean_label": 0.5362448459859326,
+            "num_queries": 1178,
+            "num_pairs": 131936,
+            "num_models": 112
+          },
+          {
+            "dataset": "GPQA",
+            "correctness_pred_acc": 0.7898214285714286,
+            "bce_per_pair": 0.5074998922567745,
+            "brier": 0.16310176132716764,
+            "roc_auc": 0.5688589116810696,
+            "mean_pred": 0.21602259182133632,
+            "mean_label": 0.20273214285714286,
+            "num_queries": 500,
+            "num_pairs": 56000,
+            "num_models": 112
+          },
+          {
+            "dataset": "medmcqa",
+            "correctness_pred_acc": 0.6077481840193705,
+            "bce_per_pair": 0.6640541127929422,
+            "brier": 0.2350666634203062,
+            "roc_auc": 0.6262707061883157,
+            "mean_pred": 0.4553590610978052,
+            "mean_label": 0.42710855528652136,
+            "num_queries": 354,
+            "num_pairs": 39648,
+            "num_models": 112
+          },
+          {
+            "dataset": "mathqa",
+            "correctness_pred_acc": 0.6652727546714888,
+            "bce_per_pair": 0.6719682317679718,
+            "brier": 0.22914175802715958,
+            "roc_auc": 0.5739399368273115,
+            "mean_pred": 0.27693141642281965,
+            "mean_label": 0.3366862567811935,
+            "num_queries": 237,
+            "num_pairs": 26544,
+            "num_models": 112
+          },
+          {
+            "dataset": "asdiv",
+            "correctness_pred_acc": 0.9655032467532467,
+            "bce_per_pair": 0.16076505970503954,
+            "brier": 0.035828061962571975,
+            "roc_auc": 0.6215538664036313,
+            "mean_pred": 0.06949415466068846,
+            "mean_label": 0.03445165945165945,
+            "num_queries": 198,
+            "num_pairs": 22176,
+            "num_models": 112
+          },
+          {
+            "dataset": "social_iqa",
+            "correctness_pred_acc": 0.6708553791887125,
+            "bce_per_pair": 0.6513241404707855,
+            "brier": 0.22706541673798206,
+            "roc_auc": 0.49342126733434855,
+            "mean_pred": 0.30535613568586784,
+            "mean_label": 0.3192791005291005,
+            "num_queries": 162,
+            "num_pairs": 18144,
+            "num_models": 112
+          },
+          {
+            "dataset": "piqa",
+            "correctness_pred_acc": 0.7188832622601279,
+            "bce_per_pair": 0.6211056117992401,
+            "brier": 0.1979752250350489,
+            "roc_auc": 0.5290565304171786,
+            "mean_pred": 0.7759021683775157,
+            "mean_label": 0.8049706823027718,
+            "num_queries": 134,
+            "num_pairs": 15008,
+            "num_models": 112
+          },
+          {
+            "dataset": "gsm8k",
+            "correctness_pred_acc": 0.7204241071428571,
+            "bce_per_pair": 0.5592485784784649,
+            "brier": 0.1892484643098014,
+            "roc_auc": 0.7836263452903117,
+            "mean_pred": 0.37621591076441085,
+            "mean_label": 0.42251275510204084,
+            "num_queries": 112,
+            "num_pairs": 12544,
+            "num_models": 112
+          },
+          {
+            "dataset": "truthfulqa_mc1",
+            "correctness_pred_acc": 0.6639720077220077,
+            "bce_per_pair": 0.6293495420945772,
+            "brier": 0.2189360613274613,
+            "roc_auc": 0.5936142335011378,
+            "mean_pred": 0.41001140720068097,
+            "mean_label": 0.3087596525096525,
+            "num_queries": 74,
+            "num_pairs": 8288,
+            "num_models": 112
+          },
+          {
+            "dataset": "logiqa",
+            "correctness_pred_acc": 0.6787464985994398,
+            "bce_per_pair": 0.6239580136635976,
+            "brier": 0.2164604578738556,
+            "roc_auc": 0.5774475995717837,
+            "mean_pred": 0.3389991878503472,
+            "mean_label": 0.32685574229691877,
+            "num_queries": 51,
+            "num_pairs": 5712,
+            "num_models": 112
+          }
+        ]
+      }
+    }
+  }
+}
